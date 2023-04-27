@@ -89,7 +89,7 @@ There are three suitable partitions for running JupyterLab on ADA:
 | ----------- | ----------- | ----------- | ----------- |
 | compute-24-128 | 7 days | 5144 |  due to be decommisioned shortly |
 | compute-24-96 | 7 days | 3772 |  default partition |
-| compute-64-512 | 7 days | 7975 | |
+| compute-64-512 | 7 days | 7975 |                   |
 
 You can check how busy the partitions are using `snoderes`. For example:
 
