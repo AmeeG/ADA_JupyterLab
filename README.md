@@ -63,7 +63,7 @@ The output should looks something like this:
 
 where the paths that should match are highlighted in a red box.
 
-### Create a batch submission script for creating a JupyterLab session on ADA
+### Create a batch submission script
 
 To submit the JupyterLab instructions to ADA you need to create a batch job submission script. I have uploaded an example script - AIRESconda_sub.sh
 
