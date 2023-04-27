@@ -8,35 +8,16 @@ Log in to ADA following the [HPC teams instructions](https://my.uea.ac.uk/divisi
 ```console
 interactive -h
 ```
-## Conda configuration
-
-Before you run conda within ADA you may need to add initialisation instructions to your .bashrc file. To do this use:
+Once in an interactive node you can view the available versions of python using:
 
 ```console
-conda init bash
+module spider python
 ```
-This should update your .bashrc file to allow conda to work with shell level commands (e.g. `conda activate`).
-
-To avoid python version conflicts between the node environment you are working in and the base conda environment on ADA you need to stop nested environment activation. To do this use:
+Select an available version of python anaconda (e.g. 3.8) and then load it using:
 
 ```console
-conda config –-set auto_activate_base false
+module add python/anaconda/2020.11/3.8
 ```
-
-This should create a .condarc file with the nested environments turned off. 
-
-To double check that there is no conflict of your python versions use the following commands:
-
-```console
-which python
-python -c 'import sys; print(sys.prefix)' 
-```
-The output should looks something like this: 
-
-![python_version_check](https://user-images.githubusercontent.com/111057180/217242277-83ae56cc-515b-4bfa-8a70-b3189a0e23b5.png)
-
-where the paths that should match are highlighted in a red box.
-
 ## Create a conda environment for JupyterLab to use. 
 
 Before you can submit a job to initialise a JupyterLab session you must make sure the conda environment you load exists. For this example I have used the environment provided in AIRESenv.yml - which should be suitable for running the python training courses on [UEApy](https://github.com/ueapy).
@@ -56,6 +37,26 @@ conda create -n AIREenv python=3.8.5 seaborn matplotlib numpy jupyter jupyterlab
 conda activate AIRESenv
 conda install -c conda-forge cartopy=0.21
 ```
+
+You may experience python version conflicts between the node environment you are working in and the base conda environment on ADA. If this happens then you need to stop nested environment activation. To do this use:
+
+```console
+conda config –-set auto_activate_base false
+```
+
+This creates a .condarc file with the nested environments turned off. 
+
+To double check that there is no conflict of your python versions use the following commands:
+
+```console
+which python
+python -c 'import sys; print(sys.prefix)' 
+```
+The output should looks something like this: 
+
+![python_version_check](https://user-images.githubusercontent.com/111057180/217242277-83ae56cc-515b-4bfa-8a70-b3189a0e23b5.png)
+
+where the paths that should match are highlighted in a red box.
 
 ## Create a batch submission script for creating a JupyterLab session on ADA
 
