@@ -5,7 +5,9 @@ Log in to ADA following the [HPC teams instructions](https://my.uea.ac.uk/divisi
 
 *Note:* Ensure you launch an interactive session for any conda environment configuration, etc., as these processes are too computationally expensive for the login node. To view the help documentation on interactive session within ADA use the command:
 
-## Initial setup - Load conda to be used interactively. 
+## Initial setup 
+
+###Load conda to be used interactively. 
 
 ```console
 interactive -h
@@ -20,7 +22,8 @@ Select an available version of python anaconda (e.g. 3.8) and then load it using
 ```console
 module add python/anaconda/2020.11/3.8
 ```
-## Initial setup - Create a conda environment for JupyterLab to use. 
+
+###Create a conda environment for JupyterLab to use. 
 
 Before you can submit a job to initialise a JupyterLab session you must make sure the conda environment you load exists. For this example I have used the environment provided in AIRESenv.yml - which should be suitable for running the python training courses on [UEApy](https://github.com/ueapy).
 
@@ -60,7 +63,7 @@ The output should looks something like this:
 
 where the paths that should match are highlighted in a red box.
 
-## Initial setup - Create a batch submission script for creating a JupyterLab session on ADA
+###Create a batch submission script for creating a JupyterLab session on ADA
 
 To submit the JupyterLab instructions to ADA you need to create a batch job submission script. I have uploaded an example script - AIRESconda_sub.sh
 
