@@ -6,7 +6,6 @@ Log in to ADA following the [HPC teams instructions](https://my.uea.ac.uk/divisi
 *Note:* Ensure you launch an interactive session for any conda environment configuration, etc., as these processes are too computationally expensive for the login node. To view the help documentation on interactive session within ADA use the command:
 
 ## Initial setup - load conda to be used interactively. 
-##Load conda
 
 ```console
 interactive -h
