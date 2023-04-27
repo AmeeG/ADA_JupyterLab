@@ -5,7 +5,7 @@ Log in to ADA following the [HPC teams instructions](https://my.uea.ac.uk/divisi
 
 *Note:* Ensure you launch an interactive session for any conda environment configuration, etc., as these processes are too computationally expensive for the login node. To view the help documentation on interactive session within ADA use the command:
 
-## Initial setup - load conda to be used interactively. 
+## Initial setup - Load conda to be used interactively. 
 
 ```console
 interactive -h
@@ -20,7 +20,7 @@ Select an available version of python anaconda (e.g. 3.8) and then load it using
 ```console
 module add python/anaconda/2020.11/3.8
 ```
-## Create a conda environment for JupyterLab to use. 
+## Initial setup - Create a conda environment for JupyterLab to use. 
 
 Before you can submit a job to initialise a JupyterLab session you must make sure the conda environment you load exists. For this example I have used the environment provided in AIRESenv.yml - which should be suitable for running the python training courses on [UEApy](https://github.com/ueapy).
 
@@ -60,7 +60,7 @@ The output should looks something like this:
 
 where the paths that should match are highlighted in a red box.
 
-## Create a batch submission script for creating a JupyterLab session on ADA
+## Initial setup - Create a batch submission script for creating a JupyterLab session on ADA
 
 To submit the JupyterLab instructions to ADA you need to create a batch job submission script. I have uploaded an example script - AIRESconda_sub.sh
 
@@ -76,6 +76,10 @@ In this file areas you may want to modify are:
 - *Line 6-8*: The job-name and output files (these are important).
 - *Line 11*: Which python version you are using, this should match your conda env python version. 
 
+## Submit your JupyterLab script
+
+Note: Now we are past the initial setup. For future sessions you can start at this step and submit the job from the login node. 
+
 There are three suitable partitions for running JupyterLab on ADA:
 
 | Partition | Max Time | Default Memory Per CPU
@@ -83,7 +87,6 @@ There are three suitable partitions for running JupyterLab on ADA:
 | compute-24-128 | 7 days | 5144 |
 | compute-24-96 | 7 days | 3772 |
 | compute-64-512 | 7 days | 7975 |
-
 
 You can check how busy the partitions are using `snoderes`. For example:
 
