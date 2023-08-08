@@ -87,7 +87,6 @@ There are three suitable partitions for running JupyterLab on ADA:
 
 | Partition | Max Time | Default Memory Per CPU | Notes 
 | ----------- | ----------- | ----------- | ----------- |
-| compute-24-128 | 7 days | 5144 |  due to be decommisioned shortly |
 | compute-24-96 | 7 days | 3772 |  default partition |
 | compute-64-512 | 7 days | 7975 |                   |
 
