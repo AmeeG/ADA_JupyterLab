@@ -38,7 +38,7 @@ conda env create --name AIRESenv --file=AIRESenv.yml
 Note: If conda cannot find a way to install this environment it may be easier to manually create an environment using
 
 ```console
-conda create -n AIREenv python=3.8.5 seaborn matplotlib numpy jupyter jupyterlab netcdf4 xlwt xlrd owslib xarray ipython spyder dask pandas
+conda create -n AIRESenv python=3.8.5 seaborn matplotlib numpy jupyter jupyterlab netcdf4 xlwt xlrd owslib xarray ipython spyder dask pandas
 conda activate AIRESenv
 conda install -c conda-forge cartopy=0.21
 ```
@@ -125,6 +125,41 @@ At this point you should (hopefully) have a JupyterLab session running on one of
 1) **.out file** (e.g. AIRESconda.out). This provides the `ssh` instruction for the local tunnel set up.  Copy the `ssh` command from the file (I usually open it directly using nano and copy the command). Use your systems local command prompt or terminal to submit the `ssh` command. If it is successful it will look as though it has frozen.
 2) **.err file** (e.g. AIREDconda.err) This provides the url to access the Jupyter Lab session via your browser of choice. 
 I recommend that you use the url that starts with `‘http://127.0.0.1:8888/lab?token=…’` and Google Chrome. It may take a few seconds to load.
+
+## Alternative method: run directly on a v01/v02 node
+If compute-64-512 is full then there is an alternative option of running JupyterLab directly within Ada's visualisation node. Although this isnt necessarily recommended as your working space will not be containerised. I recommend checking who is on the node with you to make sure it isnt too busy, or use top to have a quick look at current cpu usage.
+
+###From Ada's login node
+
+ssh into a visualisation node:
+```console
+ssh -x <Your 8 digit username>@v01    (or @v02)
+```
+
+Then optionally check who else is on the node with you:
+```console
+users
+top
+```
+
+Once you have determined there is space then continue:
+```console
+module add python/anaconda/2020.11/3.8
+conda activate AIRESenv
+jupyter lab --no-browser --ip $HOSTNAME
+```
+###Locally on your machine
+
+Open a terminal session (/or Powershell if on windows) and create the tunnel:
+```console
+ssh -N -L 8888:v01:8888 <Your 8 digit username>@ada.uea.ac.uk       (or 8888:v02:8888 if you connected to v02 on ada)  
+```
+Once correctly connected it will look like the terminal/powershell screen has frozen. 
+
+###Go back to Ada
+Copy the url created by JupyterLab on ada. It will look something like this: `‘http://127.0.0.1:8888/lab?token=…’`. Paste it into a browser tab and your JupyterLab session should load within a minute or two. 
+
+Once you have finished using this session remember to kill processes to free up computing resources for others.
 
 ## Potential 8888 port issues
 
