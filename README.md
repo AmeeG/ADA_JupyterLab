@@ -129,7 +129,7 @@ I recommend that you use the url that starts with `‘http://127.0.0.1:8888/lab?
 ## Alternative method: run directly on a v01/v02 node
 If compute-64-512 is full then there is an alternative option of running JupyterLab directly within Ada's visualisation node. Although this isnt necessarily recommended as your working space will not be containerised. I recommend checking who is on the node with you to make sure it isnt too busy, or use top to have a quick look at current cpu usage.
 
-###From Ada's login node
+### From Ada's login node
 
 ssh into a visualisation node:
 ```console
@@ -148,7 +148,7 @@ module add python/anaconda/2020.11/3.8
 conda activate AIRESenv
 jupyter lab --no-browser --ip $HOSTNAME
 ```
-###Locally on your machine
+### Locally on your machine
 
 Open a terminal session (/or Powershell if on windows) and create the tunnel:
 ```console
@@ -156,7 +156,7 @@ ssh -N -L 8888:v01:8888 <Your 8 digit username>@ada.uea.ac.uk       (or 8888:v02
 ```
 Once correctly connected it will look like the terminal/powershell screen has frozen. 
 
-###Go back to Ada
+### Go back to Ada
 Copy the url created by JupyterLab on ada. It will look something like this: `‘http://127.0.0.1:8888/lab?token=…’`. Paste it into a browser tab and your JupyterLab session should load within a minute or two. 
 
 Once you have finished using this session remember to kill processes to free up computing resources for others.
